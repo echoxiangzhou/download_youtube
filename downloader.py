@@ -50,10 +50,12 @@ link_field = Entry(screen, width=40, font=('Arial', 15) )
 link_label = Label(screen, text="Enter Download Link: ", font=('Arial', 15))
 
 #Select Path for saving the file
-path_label = Label(screen, text="Select Path For saving the downloaded file", font=('Arial', 15))
+path_label = Label(screen, text="", font=('Arial', 15))
+path_label_title = Label(screen, text="File saving path:", font=('Arial', 15))
 select_btn =  Button(screen, text="Select Path", bg='red', padx='22', pady='5',font=('Arial', 15), fg='#000', command=select_path)
 #Add to window
-canvas.create_window(250, 280, window=path_label)
+canvas.create_window(300, 280, window=path_label)
+canvas.create_window(100, 280, window=path_label_title)
 canvas.create_window(250, 330, window=select_btn)
 
 #Add widgets to window 
