@@ -18,11 +18,11 @@ def download_file():
     get_link = link_field.get()
     #get selected path
     user_path = path_label.cget("text")
-    if "playlist?" in user_path:
+    if "playlist?" in get_link:
         plist = Playlist(get_link)
         screen.title('Downloading Playlist:'+plist.title)
-        for video in plist.videos:
-            mp4_video = video.streams.get_high_resolution().download()
+        for url in plist.video_urls:
+            mp4_video = YouTube(url).streams.get_highest_resolution().download()
     	    #move file to selected directory
             shutil.move(mp4_video, user_path)
             MsgBox.showinfo('提示','Download all videos of this playlist completely!')
