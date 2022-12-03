@@ -25,7 +25,7 @@ def download_file():
             mp4_video = YouTube(url).streams.get_highest_resolution().download()
     	    #move file to selected directory
             shutil.move(mp4_video, user_path)
-            MsgBox.showinfo('提示','Download all videos of this playlist completely!')
+        MsgBox.showinfo('提示','Download all videos of this playlist completely!')
     else:
         screen.title('Downloading single video...')
         #Download Video
