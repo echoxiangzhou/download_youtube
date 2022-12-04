@@ -1,5 +1,5 @@
 # YouTube Video Downloader
-A GUI application downloading YouTube video using pytube package.
+A GUI application for downloading YouTube video using pytube package.
 
 <img src="https://raw.githubusercontent.com/echoxiangzhou/download_youtube/main/GUI.png" width="400">
 
