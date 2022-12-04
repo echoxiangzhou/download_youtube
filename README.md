@@ -1,6 +1,8 @@
 # download_youtube
 A GUI application downloading YouTube video using pytube package.
 
+![YouTube_Downloader](https://raw.githubusercontent.com/echoxiangzhou/download_youtube/main/GUI.png)
+
 There are 3 ways to download youtube video:
 1. A single video url. e.g. https://www.youtube.com/watch?v=ew4BnSnzelE
 2. A playlist url. e.g. https://www.youtube.com/playlist?list=PLAxJ4-o7ZoPccOFv1dCwvGI6TYnirRTg3
