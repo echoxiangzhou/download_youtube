@@ -1,5 +1,5 @@
 # download_youtube
-download youtube videos using pytube package.
+A GUI application downloading YouTube video using pytube package.
 
 There are 3 ways to download youtube video:
 1. A single video url. e.g. https://www.youtube.com/watch?v=ew4BnSnzelE
@@ -11,3 +11,15 @@ After select steps above,then remember to select a dirctory to save the download
 Then click the "Download File" button.
 
 Enjoy~
+
+To-do List:
+
+- [x] Build a GUI App support single/multiple video url
+
+- [x] Add Playlist downloading
+
+- [ ] Download YouTube video using Command-Line Interface
+
+- [ ] Add Dockerfile
+
+- [ ] Download YouTube video in Synology NAS with docker mode
