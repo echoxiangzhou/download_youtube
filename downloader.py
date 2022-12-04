@@ -9,14 +9,14 @@ import shutil
 
 #Functions
 def select_path():
-    #allows user to select a path from the explorer
+    #allows user to select a path for saving downladed video file from the explorer
     path = filedialog.askdirectory()
-    path_field.delete(0,"end")
+    path_field.delete(0,END)
     path_field.insert(0,path)
 #    path_label.config(text=path)
 
 def select_url_file():
-    #allows user to select a path from the explorer
+    #allows user to select a text file containing multiple video urls from the explorer
     filetypes = (
         ('Text Files','*.txt'),
 	    ('All Files','*.*')
@@ -28,6 +28,7 @@ def select_url_file():
       url_field.insert(0,path)
 
 def handle_focus(event):
+    #Clear the urllist file input field when focus in the video url input field.
     if event.widget == link_field:
         url_field.delete(0,END)
     return
@@ -39,29 +40,24 @@ def download_video(url):
     shutil.move(mp4_video, user_path)
 
 def download_file():
-    #get user path
     get_link = link_field.get()
-    #get selected path
     url_file = url_field.get()
-#    print(len(url_file))
 
     if len(get_link) != 0:
         #url_field.delete(0,END)
+        #downloading videos of a playlist or a single video file
         if "playlist?" in get_link:
             plist = Playlist(get_link)
             screen.title('Downloading Playlist:'+plist.title)
             for url in plist.video_urls:
                 download_video(url)
             MsgBox.showinfo('提示','Download all videos of this playlist completely!')
-        else:
+        else: 
             screen.title('Downloading single video...')
-            #Download Video
             download_video(get_link)
-    #        mp4_video = YouTube(get_link).streams.get_highest_resolution().download()
-    #        shutil.move(mp4_video, user_path)
             MsgBox.showinfo('提示','Download this video completely!')
         return
-
+    #downloading multiple videos in a text file
     if len(url_file) !=0 :
         with open(url_file,'r') as reader:
             for line in reader:
@@ -70,6 +66,7 @@ def download_file():
             MsgBox.showinfo('提示', 'Download filelist video completely!')
         return
     MsgBox.showinfo('Information','Please Enter download link or playlist link or Select urlList file!')
+    
 screen = Tk()
 title = screen.title('Youtube Download')
 canvas = Canvas(screen, width=500, height=500)
